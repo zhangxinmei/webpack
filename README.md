@@ -1,6 +1,6 @@
 # webpack
 webpack的简单配置
-## webpack.common.js的配置
+###### webpack.common.js的配置
 ```javascript
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -49,7 +49,7 @@ module.exports = {
 }
 
 ```
-## webpack.dev.js的配置
+######  webpack.dev.js的配置
 ```js
 const path = require('path');
 const merge = require('webpack-merge');
@@ -73,7 +73,7 @@ module.exports = merge(common, {
     }
 });
 ```
-## webpack.prod.js的配置
+######  webpack.prod.js的配置
 ```js
 const merge = require('webpack-merge');
  const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
