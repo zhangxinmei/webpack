@@ -9,11 +9,12 @@ const webpack = require('webpack');
 module.exports = {
     entry: {
         app: [
-            './src/js/index.js'
-        ]
+            './src/js/index.js'  //主要入口文件
+        ]
     },
     output: {
-        filename: '[name].[hash:8].js',
+        //输出以后的文件
+        filename: '[name].[hash:8].js',
         path: path.resolve(__dirname, 'dist')
     },
     module: {
@@ -26,8 +27,8 @@ module.exports = {
             },
             {
                 test: /(\.less|\.css)$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
+                use: ExtractTextPlugin.extract({  //ExtractTextPlugin用于分离出css文件
+                     fallback: "style-loader",
                     use: [{
                             loader: "css-loader"
                         },
