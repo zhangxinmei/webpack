@@ -23,6 +23,21 @@ npm run dev
 ## webpack的简单配置
 其实关于webpack，最有效的办法就是跟着官方文档一步步配置
 [webpack官方文档](https://doc.webpack-china.org/)
+
+### 新建目录
+首先我们需要新建目录用于存放我们的，目录结构大家可以自己定，下面是我的目录结构
+
+```bash
+
+```
+### 安装
+首先我们需要安装webpack，可以全局安装，也可以本地安装
+```bash
+npm install -g webpack //全局安装
+
+npm install --save-dev webpack //本地安装
+```
+
 ###### webpack.common.js的配置
 ```javascript
 const path = require('path');
