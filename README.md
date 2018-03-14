@@ -28,15 +28,39 @@ npm run dev
 首先我们需要新建目录用于存放我们的，目录结构大家可以自己定，下面是我的目录结构
 
 ```bash
-
+│  package-lock.json
+│  package.json
+│  postcss.config.js //postcss配置
+│  webpack.common.js //通用配置
+│  webpack.dev.js  //开发环境配置
+│  webpack.prod.js //生产环境配置
+│  yarn.lock
+│
+└─src
+    │  index.html //主页面文件
+    │
+    ├─css
+    │      style.less  //样式文件
+    │
+    └─js
+            index.js  //入口文件
 ```
 ### 安装
+
 首先我们需要安装webpack，可以全局安装，也可以本地安装
+
 ```bash
 npm install -g webpack //全局安装
 
 npm install --save-dev webpack //本地安装
 ```
+### 加载CSS
+为了从 能JavaScript 模块中 import 一个 CSS 文件，你需要在 module 配置中 安装并添加 style-loader 和 css-loader，并在通用配置中进行相应规则的配置
+```bash
+npm install --save-dev style-loader css-loader
+```
+### 设定 HtmlWebpackPlugin
+
 
 ###### webpack.common.js的配置
 ```javascript
