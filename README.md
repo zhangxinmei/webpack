@@ -13,6 +13,7 @@ git clone https://github.com/zhangxinmei/webpack.git
 
 # 进入文件夹
 cd webpak-demo
+
 # 安装依赖
 npm install
 
@@ -21,7 +22,7 @@ npm run dev
 
 ```
 ## webpack的简单配置
-其实关于webpack，最有效的办法就是跟着官方文档一步步配置
+其实关于webpack，最有效的办法就是跟着官方文档一步步配置，我就是跟着官方文档一步步配置的，文档写的非常好，跟着一步步就能够配置出来了
 [webpack官方文档](https://doc.webpack-china.org/)
 
 ### 新建目录
