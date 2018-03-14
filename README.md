@@ -26,7 +26,7 @@ npm run dev
 [webpack官方文档](https://doc.webpack-china.org/)
 
 ### 新建目录
-首先我们需要新建目录用于存放我们的，目录结构大家可以自己定，下面是我的目录结构
+首先我们需要新建目录用于存放我们的项目，目录结构大家可以自己定，下面是我的目录结构
 
 ```bash
 │  package-lock.json
@@ -60,6 +60,8 @@ npm install --save-dev webpack //本地安装
 ```bash
 npm install --save-dev style-loader css-loader
 ```
+如果你的项目使用sass或者less编写，那么就要安装sass,sass-loader和less,less-loader，并进行相应的配置
+
 ### 设定 HtmlWebpackPlugin
 
 为了在打包时候使index.html文件能够自动引入可能文件名会改变的入口文件，就要使用HtmlWebpackPlugin，并在通用配置中对其进行配置，通常需要配置filename和template两个参数，具体参数可参考[html-webpack-plugin](https://www.npmjs.com/package/html-webpack-plugin)
@@ -80,15 +82,15 @@ npm install clean-webpack-plugin --save-dev
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 module.exports = {
-    entry: {
-        app: [
-            './src/js/index.js'  //主要入口文件
-        ]
+    entry: {  //入口
+        app: [
+            './src/js/index.js'
+        ]
     },
-    output: {
-        //输出以后的文件
+    output: {  //出口
         filename: '[name].[hash:8].js',
         path: path.resolve(__dirname, 'dist')
     },
@@ -102,13 +104,16 @@ module.exports = {
             },
             {
                 test: /(\.less|\.css)$/,
-                use: ExtractTextPlugin.extract({  //ExtractTextPlugin用于分离出css文件
-                     fallback: "style-loader",
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
                     use: [{
                             loader: "css-loader"
                         },
                         {
                             loader: "less-loader"
+                        },
+                        {
+                            loader: 'postcss-loader'
                         }
                     ]
                 })
@@ -116,14 +121,14 @@ module.exports = {
         ]
     },
     plugins: [
+        new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             filename: "index.html",
             template: path.resolve(__dirname, "src/index.html")
         }),
-        new ExtractTextPlugin("[name].[hash:10].css"), //哈希值用于处理缓存问题
+        new ExtractTextPlugin("[name].[hash:10].css"),
     ]
 }
-
 ```
 
 ######  webpack.dev.js的配置
