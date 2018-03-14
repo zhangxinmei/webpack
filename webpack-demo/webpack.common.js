@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 module.exports = {
     entry: {
@@ -31,6 +32,9 @@ module.exports = {
                         },
                         {
                             loader: "less-loader"
+                        },
+                        {
+                            loader: 'postcss-loader'
                         }
                     ]
                 })
@@ -38,6 +42,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             filename: "index.html",
             template: path.resolve(__dirname, "src/index.html")
