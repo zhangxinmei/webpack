@@ -6,7 +6,23 @@
 
 >如果您觉得对您有帮助，您可以点右上角 "Star" 支持一下 谢谢，如果发现有什么问题，欢迎指出
 
-webpack的简单配置
+## 示例运行
+``` bash
+# 克隆到本地
+git clone https://github.com/zhangxinmei/webpack.git
+
+# 进入文件夹
+cd webpak-demo
+# 安装依赖
+npm install
+
+# 开启本地服务器
+npm run dev
+
+```
+## webpack的简单配置
+其实关于webpack，最有效的办法就是跟着官方文档一步步配置
+[webpack官方文档](https://doc.webpack-china.org/)
 ###### webpack.common.js的配置
 ```javascript
 const path = require('path');
