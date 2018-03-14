@@ -61,6 +61,18 @@ npm install --save-dev style-loader css-loader
 ```
 ### 设定 HtmlWebpackPlugin
 
+为了在打包时候使index.html文件能够自动引入可能文件名会改变的入口文件，就要使用HtmlWebpackPlugin，并在通用配置中对其进行配置，通常需要配置filename和template两个参数，具体参数可参考[html-webpack-plugin](https://www.npmjs.com/package/html-webpack-plugin)
+* filename：你的html主页面名称，默认为index.html
+* template：你的html主页面的路径
+```bash
+npm install --save-dev html-webpack-plugin
+```
+### 清理 /dist 文件夹
+如果你的css和js文件设置了哈希值，那么在每次打包的时候，webpack都会重新生成一个带哈希值的文件，这样可能我们不能马上看出自己最近一次修改的文件，因此这时候clean-webpack-plugin 就可以解决这个问题，它会清理dist文件夹，打包后只剩下最近一次修改的文件
+
+```bash
+npm install clean-webpack-plugin --save-dev
+```
 
 ###### webpack.common.js的配置
 ```javascript
@@ -112,6 +124,7 @@ module.exports = {
 }
 
 ```
+
 ######  webpack.dev.js的配置
 ```js
 const path = require('path');
