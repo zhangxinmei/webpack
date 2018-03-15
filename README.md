@@ -40,10 +40,9 @@ npm run dev
 | | |____index.js  // 入口文件
 |____webpack.common.js  //通用配置
 |____webpack.dev.js  // 开发环境配置
-|____webpack.prod.js // 生产
+|____webpack.prod.js // 生产环境配置
 |____yarn.lock
-│  webpack.prod.js //生产环境配置环境
-│  webpack.prod.js //生产环境配置
+
 ```
 ### 安装
 
