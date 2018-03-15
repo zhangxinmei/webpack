@@ -29,22 +29,21 @@ npm run dev
 首先我们需要新建目录用于存放我们的项目，目录结构大家可以自己定，下面是我的目录结构
 
 ```bash
-│  package-lock.json
-│  package.json
-│  postcss.config.js //postcss配置
-│  webpack.common.js //通用配置
-│  webpack.dev.js  //开发环境配置
+|____package-lock.json
+|____package.json
+|____postcss.config.js
+|____src
+| |____css
+| | |____style.less // 样式文件
+| |____index.html // 主页面
+| |____js
+| | |____index.js  // 入口文件
+|____webpack.common.js  //通用配置
+|____webpack.dev.js  // 开发环境配置
+|____webpack.prod.js // 生产
+|____yarn.lock
+│  webpack.prod.js //生产环境配置环境
 │  webpack.prod.js //生产环境配置
-│  yarn.lock
-│
-└─src
-    │  index.html //主页面文件
-    │
-    ├─css
-    │      style.less  //样式文件
-    │
-    └─js
-            index.js  //入口文件
 ```
 ### 安装
 
