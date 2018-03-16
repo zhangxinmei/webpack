@@ -74,6 +74,23 @@ npm install --save-dev html-webpack-plugin
 ```bash
 npm install clean-webpack-plugin --save-dev
 ```
+### 使用 source map
+source map可以将编译后的代码映射回原始源代码，方便我们检查错误。我们只需在webpack.dev.js文件里面配置
+
+```bash
+devtool: 'inline-source-map'
+```
+### 使用 webpack-dev-server
+webpack-dev-server可以帮助我们在每次代码发生变化后自动编译代码：
+
+```bash
+npm install --save-dev webpack-dev-server
+
+//配置
+devServer: {
+     contentBase: './dist'
+   },
+```
 
 ###### webpack.common.js的配置
 ```javascript
