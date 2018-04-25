@@ -17,40 +17,43 @@ module.exports = {
     },
     module: {
         rules: [{
-                test: /\.js$/,
-                exclude: /(node_modules)/,
-                use: {
-                    loader: 'babel-loader',
+            test: /\.js$/,
+            exclude: /(node_modules)/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['es2015']
                 }
-            },
-            {
-                test: /\.(gif|jpg|jpeg|png|svg)$/,//图片各类格式
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 1024,//图片大小
-                            name: '[name]-aaa.[ext]'//图片名称规则
-                        }
-                    }
-                ]
-            },
-            {
-                test: /(\.scss|\.css)$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: [{
-                            loader: "css-loader"
-                        },
-                        {
-                            loader: "sass-loader"
-                        },
-                        {
-                            loader: 'postcss-loader'
-                        }
-                    ]
-                })
             }
+        },
+        {
+            test: /\.(gif|jpg|jpeg|png|svg)$/,//图片各类格式
+            use: [
+                {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 1024,//图片大小
+                        name: '[name]-aaa.[ext]'//图片名称规则
+                    }
+                }
+            ]
+        },
+        {
+            test: /(\.scss|\.css)$/,
+            use: ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: [{
+                    loader: "css-loader"
+                },
+                {
+                    loader: "sass-loader"
+                },
+                {
+                    loader: 'postcss-loader'
+                }
+                ]
+            })
+        }
         ]
     },
     plugins: [
